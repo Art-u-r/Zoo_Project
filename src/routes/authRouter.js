@@ -1,23 +1,23 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../../db/models';
+import { Admin } from '../../db/models';
 
 const authRouter = express.Router();
 
 authRouter.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  if (!(email && password)) res.sendStatus(400);
+  if (!(email && password)) return res.sendStatus(400);
 
-  const foundUser = await User.findOne({ where: { email } });
+  const foundUser = await Admin.findOne({ where: { email } });
 
-  if (!foundUser) res.sendStatus(400);
+  if (!foundUser) return res.sendStatus(400);
 
-  if (!(await bcrypt.compare(password, foundUser.password))) res.sendStatus(401);
+  if (!(await bcrypt.compare(password, foundUser.password))) return res.sendStatus(401);
 
   req.session.user = foundUser;
 
-  res.sendStatus(200);
+  return res.sendStatus(200);
 });
 
 authRouter.get('/logout', (req, res) => {
