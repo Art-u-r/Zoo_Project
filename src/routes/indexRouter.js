@@ -12,4 +12,8 @@ router.get('/gallery', (req, res) => {
   res.render('Layout', initState);
 });
 
+router.get('/login', (req, res) => {
+  res.render('Layout');
+});
+
 export default router;
