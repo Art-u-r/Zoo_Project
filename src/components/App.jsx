@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Navbar from './NavBar';
+import LoginPage from './pages/LoginPage';
 
-export default function App({}) {
+export default function App({ user }) {
   return (
     <div className="container">
-      <Navbar/>
+      <Navbar user={user} />
       <Routes>
-        <Route path="/" element={<MainPage/>} />
-        {/* <Route path="/posts" element={<PostsPage />} /> */}
+        <Route path="/" element={<MainPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>
   );
