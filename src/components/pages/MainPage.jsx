@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 
-export default function MainPage( {animals}) {
-    const [animal, setAnimal] = useState(animals);
-  return ( <ul>
-      {animal.map((e) => ( <li > {e.animalname} </li> ))}
-  </ul>
+export default function MainPage() {
+  return (
+    <div>Main</div>
   )
 }
