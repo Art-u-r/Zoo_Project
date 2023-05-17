@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      'Animal',
+      'Animals',
       [
         {
           animalname: 'Лев',
@@ -26,12 +26,24 @@ module.exports = {
           description: 'семейство класса млекопитающих из отряда хоботных. В настоящее время к этому семейству относятся 3 ныне живущих вида. Африканские саванные слоны — наиболее крупные наземные млекопитающие.',
           mainImg: "https://icdn.lenta.ru/images/2023/04/27/10/20230427100832007/wide_1c627ee4cbad8582cc2668cb1797a780.jpg",
         },
+        {
+          animalname: 'Обезьяна',
+          description: 'группа млекопитающих из отряда приматов. В биологической систематике название «обезьяны» может применяться по отношению ко всем представителям инфраотряда Simiiformes или подотряда Haplorhini.',
+          mainImg: "https://image.mel.fm/i/Z/ZAMXqz2DyF/1200.jpg",
+        },
       ],
       {},
     );
+    await queryInterface.bulkInsert('Admins', [
+      {
+        name: 'Admin',
+        email: "aa@bb.cc",
+        password: 123
+      },
+    ],{});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Animal', null, {});
+    await queryInterface.bulkDelete('Animals', null, {});
   },
 };
