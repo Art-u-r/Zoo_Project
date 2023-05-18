@@ -15,12 +15,12 @@ module.exports = {
         {
           animalname: 'Зебра',
           description: 'Подрод рода лошади, включающий виды бурчеллова зебра, зебра Греви и горная зебра. Гибридные формы между зебрами и домашними лошадьми называют зеброидами, между зебрами и ослами — зебрулами. Зебры живут маленькими группами, состоящими из самок с детёнышами и одного жеребца.',
-          mainImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Equus_quagga_burchellii_-_Etosha%2C_2014.jpg/1200px-Equus_quagga_burchellii_-_Etosha%2C_2014.jpg"
+          mainImg: "https://images.techinsider.ru/upload/img_cache/30a/30aebd45f03f26714ef557a7d54bc65b_ce_1920x1278x0x3_cropped_666x444.jpg"
         },
         {
           animalname: 'Медведь',
           description: 'Семейство млекопитающих отряда хищных. Отличаются от других представителей псообразных более коренастым телосложением. Медведи всеядны, хорошо лазают и плавают, быстро бегают, могут стоять и проходить короткие расстояния на задних лапах.',
-          mainImg: "https://www.belta.by/images/storage/news/with_archive/2018/000029_1527081193_303870_big.jpg",
+          mainImg: "https://cdnn1.img.sputniknewslv.com/img/07e5/0a/14/18875951_402:0:1842:1080_1920x0_80_0_0_799c28e539dc9b6134d9e46420b5afa6.jpg",
         },
         {
           animalname: 'Слон',
