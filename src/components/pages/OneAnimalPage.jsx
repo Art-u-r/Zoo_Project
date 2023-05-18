@@ -1,12 +1,13 @@
-import React from 'react'
-import AnimalPage from './AnimalPage'
+import React from 'react';
 
 export default function OneAnimalPage({ animal }) {
+  console.log(animal);
   return (
-    <>
-    <img src={animal.mainImg} alt="" />
-    <div><a href={`/gallery/${animal.id}`}>{animal.animalname}</a></div>
-    <div>{animal.description}</div>
-    </>
-  )
+      <div className="card" style={{ width: '18rem' }}>
+        <img src={animal.mainImg} className="card-img-top" alt={animal.animalname} />
+        <div className="card-body">
+          <p className="card-text">{animal.animalname}</p>
+        </div>
+      </div>
+  );
 }

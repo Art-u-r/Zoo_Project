@@ -1,10 +1,10 @@
 import React from 'react'
 import OneAnimalPage from './OneAnimalPage'
 
-export default function AnimalPage({ animals, setAnimals }) {
+export default function AnimalPage({ animals }) {
   return (
-    <ul>
-      {animals.map((e) => ( <OneAnimalPage key={e.id} animal = { e } /> ))}
-  </ul>
+    <div> 
+      {animals.map((e) => <OneAnimalPage key={e.id} animal = {e}/> )}
+  </div>
   )
 }

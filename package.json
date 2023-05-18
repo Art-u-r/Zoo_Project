@@ -1,7 +1,6 @@
 {
   "name": "a",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -47,5 +46,14 @@
     "react-router-dom": "^6.11.1",
     "sequelize": "^6.31.1",
     "session-file-store": "^1.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Art-u-r/Zoo_Project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Art-u-r/Zoo_Project/issues"
+  },
+  "homepage": "https://github.com/Art-u-r/Zoo_Project#readme",
+  "description": ""
 }
