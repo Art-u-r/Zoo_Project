@@ -17,14 +17,16 @@ export default function Navbar({ user }) {
               Главная страница
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="/login">
-              Администрирование
-            </a>
-          </li>
+          {!user && (
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/login">
+                Администрирование
+              </a>
+            </li>
+          )}
           {user && (
             <li className="nav-item">
-              <a className="nav-link" href="/#">
+              <a className="nav-link" href="/admin">
                 Панель администратора
               </a>
             </li>
