@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './NavBar';
-import LoginPage from './pages/LoginPage';
 import MainPage from './pages/MainPage';
+import NavBar from './NavBar';
+import LoginPage from './pages/LoginPage';
+import AnimalPage from './pages/AnimalPage';
 
-export default function App({ user }) {
+export default function App({ animals, user }) {
+  const [animal, setAnimal] = useState(animals);
   return (
     <div className="container">
-      <Navbar user={user} />
+      <NavBar user={user} />
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/gallery" element={<AnimalPage animals={animal} setAnimal={setAnimal}/>} />
+        <Route path="/" element={<MainPage animals={animal} setAnimal={setAnimal}/>} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
+      {/* <Route path="/posts" element={<PostsPage />} /> */}
     </div>
   );
 }
