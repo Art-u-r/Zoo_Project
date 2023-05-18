@@ -15,7 +15,7 @@ module.exports = {
         {
           animalname: 'Зебра',
           description: 'Подрод рода лошади, включающий виды бурчеллова зебра, зебра Греви и горная зебра. Гибридные формы между зебрами и домашними лошадьми называют зеброидами, между зебрами и ослами — зебрулами. Зебры живут маленькими группами, состоящими из самок с детёнышами и одного жеребца.',
-          mainImg: "https://img.tsn.ua/cached/825/tsn-6fc5c486b67f33b84a28d75a8717b561/thumbs/1200x630/76/6c/3d86641a01629351b6877cbdbdb66c76.jpeg",
+          mainImg: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Equus_quagga_burchellii_-_Etosha%2C_2014.jpg/1200px-Equus_quagga_burchellii_-_Etosha%2C_2014.jpg"
         },
         {
           animalname: 'Медведь',
