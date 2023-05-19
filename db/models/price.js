@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Price.init({
-    workday_kids: DataTypes.INTEGER,
-    weekend_kids: DataTypes.INTEGER,
-    workday_adults: DataTypes.INTEGER,
-    weekend_adults: DataTypes.INTEGER
+    workday_kids: DataTypes.STRING,
+    weekend_kids: DataTypes.STRING,
+    workday_adults: DataTypes.STRING,
+    weekend_adults: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Price',

@@ -10,16 +10,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       workday_kids: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       weekend_kids: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       workday_adults: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       weekend_adults: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
