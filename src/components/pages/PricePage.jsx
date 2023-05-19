@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function PricePage({ prices }) {
+  console.log('prices', prices);
   const { workday_adults, weekend_adults, workday_kids, weekend_kids} = prices[0]
   return (
     <table className="table">

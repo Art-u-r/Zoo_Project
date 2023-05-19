@@ -10,9 +10,7 @@ import AdminPage from './pages/AdminPage';
 import AdminAnimalPage from './pages/AdminAnimalPage';
 
 export default function App({ animals, user, prices }) {
-  // console.log('==================', animals);
   const [animal, setAnimal] = useState(animals);
-  // console.log('-------------------------', animal);
   return (
     <div className="container">
       <NavBar user={user} />
@@ -23,9 +21,7 @@ export default function App({ animals, user, prices }) {
         <Route path="/price" element={<PricePage prices={prices} />} />
         <Route path="/admin/price" element={<AdminPricePage prices={prices} />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route
-          path="/admin/animals"
-          element={<AdminAnimalPage animal={animal} setAnimal={setAnimal} />}
+        <Route path="/admin/animals" element={<AdminAnimalPage animal={animal} setAnimal={setAnimal} />}
         />
       </Routes>
     </div>

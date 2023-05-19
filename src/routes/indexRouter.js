@@ -1,5 +1,5 @@
 import express from 'express';
-import { Animal } from '../../db/models';
+import { Animal, Price } from '../../db/models';
 
 const router = express.Router();
 
@@ -22,8 +22,16 @@ router.get('/admin/animals', async (req, res) => {
   res.render('Layout', initState);
 });
 
-router.get('/admin/prices', (req, res) => {
-  res.render('Layout');
+router.get('/price', async (req, res) => {
+  const prices = await Price.findAll();
+  const initState = {prices}
+  res.render('Layout', initState);
+});
+
+router.get('/admin/price', async (req, res) => {
+  const prices = await Price.findAll();
+  const initState = {prices}
+  res.render('Layout', initState);
 });
 
 router.get('/login', (req, res) => {
