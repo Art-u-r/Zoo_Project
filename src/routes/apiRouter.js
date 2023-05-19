@@ -1,22 +1,29 @@
 import express from 'express';
-import { Price, Animal } from '../../db/models';
+import { Price, Animal, Gallery } from '../../db/models';
 
 const router = express.Router();
 
-router.patch('/animals/:id', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    await Animal.update(
-      {
-        animalname: req.body.animalname,
-        description: req.body.description,
-        mainImg: req.body.mainImg,
-      },
-      { where: { id: req.params.id } },
-    );
-    const animal = await Animal.findOne({ where: { id: req.params.id } });
-    res.json(animal);
+    const { animalname, description, mainImg } = req.body;
+    const newAnimal = await Animal.create({
+      animalname,
+      description,
+      mainImg,
+    });
+    res.json(newAnimal);
   } catch (error) {
-      console.log(error);
+    res.sendStatus(401);
+  }
+});
+router.post('/photo/:id', async (req, res) => {
+  console.log(req.body);
+  console.log(req.params);
+  try {
+    await Gallery.create({ image: req.body.image, animal_id: req.params.id });
+    res.sendStatus(200);
+  } catch (error) {
+    res.sendStatus(401);
   }
 });
 
@@ -31,26 +38,27 @@ router.patch('/price', async (req, res) => {
   return res.json(prices);
 });
 
-router.post('/', async (req, res) => {
+router.delete('/animals/:id', async (req, res) => {
   try {
-    const { animalname, description, mainImg } = await req.body;
-    const newAnimal = await Animal.create({
-      animalname,
-      description,
-      mainImg,
-    });
-    res.json(newAnimal);
+    await Animal.destroy({ where: { id: req.params.id } });
+    res.sendStatus(200);
   } catch (error) {
-    res.sendStatus(401);
+    console.log(error);
   }
 });
 
-router.delete('/animals/:id', async (req, res) => {
+router.patch('/animals/:id', async (req, res) => {
   try {
-    await Animal.destroy(
+    await Animal.update(
+      {
+        animalname: req.body.animalname,
+        description: req.body.description,
+        mainImg: req.body.mainImg,
+      },
       { where: { id: req.params.id } },
     );
-      res.sendStatus(200);
+    const animal = await Animal.findOne({ where: { id: req.params.id } });
+    res.json(animal);
   } catch (error) {
     console.log(error);
   }
