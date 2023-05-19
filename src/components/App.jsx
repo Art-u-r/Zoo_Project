@@ -4,13 +4,12 @@ import MainPage from './pages/MainPage';
 import NavBar from './NavBar';
 import LoginPage from './pages/LoginPage';
 import AnimalPage from './pages/AnimalPage';
+import ModalPage from './pages/ModalPage';
 import AdminPage from './pages/AdminPage';
 import AdminAnimalPage from './pages/AdminAnimalPage';
 
-export default function App({ animals, user }) {
-  // console.log('==================', animals);
+export default function App({ animals, user, animalAndGallery }) {
   const [animal, setAnimal] = useState(animals);
-  // console.log('-------------------------', animal);
   return (
     <div className="container">
       <NavBar user={user} />
@@ -18,6 +17,7 @@ export default function App({ animals, user }) {
         <Route path="/" element={<MainPage animals={animal} setAnimal={setAnimal} />} />
         <Route path="/gallery" element={<AnimalPage animals={animal} setAnimal={setAnimal} />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path={`/gallery/${animalAndGallery?.id}`} element={<ModalPage photos={animalAndGallery?.Galleries} animals={animalAndGallery}/>} />
         <Route path="/admin" element={<AdminPage />} />
         <Route
           path="/admin/animals"

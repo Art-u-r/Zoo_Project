@@ -7,6 +7,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
     description: animal.description,
     mainImg: animal.mainImg,
   });
+
   const changeHandler = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -15,15 +16,44 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
     setAnimal((prev) => prev.map((el) => (el.id === id ? data : el)));
     window.location = '/admin/animals';
   };
+
+  const deleteHandler = async (id) => {
+    try {
+      const response = await axios.delete(`/admin/animals/${id}`);
+      console.log('response---------->', response);
+      if (response.status === 200) {
+        window.location.reload();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target));
+    await fetch('/api', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    setAnimal((prev) => [formData, ...prev]);
+    setInput({
+      animalname: animal.animalname,
+      description: animal.description,
+      mainImg: animal.mainImg,
+    });
+  };
   return (
     <div>
       <h1>Добавление животных</h1>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="input-group flex-nowrap">
           <span className="input-group-text" id="addon-wrapping">
             Имя животного
           </span>
           <input
+            name="animalname"
             type="text"
             className="form-control"
             placeholder="Имя животного"
@@ -34,6 +64,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
             Описание
           </span>
           <input
+            name="description"
             type="text"
             className="form-control"
             placeholder="Описание"
@@ -44,6 +75,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
             Изображение животного
           </span>
           <input
+            name="mainImg"
             type="text"
             className="form-control"
             placeholder="Вставьте URL изображения"
@@ -56,10 +88,10 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
         </div>
       </form>
       <div>
-        {animal?.map((el) => (
+        {animal?.map((el) => {console.log(el); return (
           <div key={el.id}>
-            {el.id}
-            <button className="btn btn-danger" type="button">
+            {el.animalname}
+            <button className="btn btn-danger" type="button" onClick={() => deleteHandler(el.id)}>
               delete
             </button>
 
@@ -131,7 +163,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
     </div>
   );
