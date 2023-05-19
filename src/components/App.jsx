@@ -6,10 +6,11 @@ import LoginPage from './pages/LoginPage';
 import AnimalPage from './pages/AnimalPage';
 import PricePage from './pages/PricePage';
 import AdminPricePage from './pages/AdminPricePage';
+import ModalPage from './pages/ModalPage';
 import AdminPage from './pages/AdminPage';
 import AdminAnimalPage from './pages/AdminAnimalPage';
 
-export default function App({ animals, user, prices }) {
+export default function App({ animals, user, prices, animalAndGallery }) {
   const [animal, setAnimal] = useState(animals);
   return (
     <div className="container">
@@ -20,6 +21,7 @@ export default function App({ animals, user, prices }) {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/price" element={<PricePage prices={prices} />} />
         <Route path="/admin/price" element={<AdminPricePage prices={prices} />} />
+        <Route path={`/gallery/${animalAndGallery?.id}`} element={<ModalPage photos={animalAndGallery?.Galleries} animals={animalAndGallery}/>} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/admin/animals" element={<AdminAnimalPage animal={animal} setAnimal={setAnimal} />}
         />

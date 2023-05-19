@@ -31,4 +31,29 @@ router.patch('/price', async (req, res) => {
   return res.json(prices);
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const { animalname, description, mainImg } = await req.body;
+    const newAnimal = await Animal.create({
+      animalname,
+      description,
+      mainImg,
+    });
+    res.json(newAnimal);
+  } catch (error) {
+    res.sendStatus(401);
+  }
+});
+
+router.delete('/animals/:id', async (req, res) => {
+  try {
+    await Animal.destroy(
+      { where: { id: req.params.id } },
+    );
+      res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default router;
