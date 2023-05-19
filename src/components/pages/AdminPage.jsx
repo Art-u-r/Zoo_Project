@@ -8,7 +8,7 @@ export default function AdminPage() {
       </div>
       <h2>типа разделение</h2>
       <div>
-        <a href="/admin/prices">Страница редактирования тарифов</a>
+        <a href="/admin/price">Страница редактирования тарифов</a>
       </div>
     </div>
   );

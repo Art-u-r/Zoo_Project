@@ -11,7 +11,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
 
   const deleteHandler = async (id, animalname) => {
     try {
-      if(window.confirm(`${animalname} будет удален безвозвратно. Удалить?`)){
+      if (window.confirm(`${animalname} будет удален безвозвратно. Удалить?`)) {
         const response = await axios.delete(`/admin/animals/${id}`);
         if (response.status === 200) {
           window.location.reload();
@@ -88,6 +88,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
             deleteHandler={deleteHandler}
             setAnimal={setAnimal}
           />
+        ))}
       </div>
     </div>
   );

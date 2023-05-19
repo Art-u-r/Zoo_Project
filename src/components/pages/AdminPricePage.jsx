@@ -23,7 +23,7 @@ export default function AdminPricePage({ prices }) {
     const data = Object.fromEntries(new FormData(e.target));
     handleButtonClick(e.target[0].name)
     try {
-      const response = await axios.patch('/admin/price', data)
+      const response = await axios.patch('/api/price', data)
       setNewPrice(response.data[0])
     } catch (error) {
         console.log(error);
