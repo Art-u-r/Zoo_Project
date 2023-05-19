@@ -2,14 +2,6 @@ import React from 'react';
 import IndividualGalleryPage from './IndividualGalleryPage';
 
 export default function ModalPage({ photos, animals }) {
-  // const [isHover, setIsHover] = useState(false);
-  // const handleMouseEnter = () => {
-  //   setIsHover(true);
-  // };
-  // const handleMouseLeave = () => {
-  //   setIsHover(false);
-  // }
-
   return (
 
     <div style={{ display:'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
