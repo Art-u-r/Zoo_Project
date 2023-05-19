@@ -25,12 +25,14 @@ export default function Layout({ initState }) {
           dangerouslySetInnerHTML={{
             __html: `window.initState=${JSON.stringify(initState)}`,
           }}
-        />
+          />
+          <link href='./App.css' rel='stylesheet'/>
+
         <script defer src="/app.js" />
         <script defer src="/vendor.js" />
         <title>Document</title>
       </head>
-      <body>
+      <body className="bd">
         <div id="root">
           <StaticRouter location={initState.path}>
             <App {...initState} />

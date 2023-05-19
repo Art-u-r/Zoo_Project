@@ -2,10 +2,27 @@ import React from 'react';
 import IndividualGalleryPage from './IndividualGalleryPage';
 
 export default function ModalPage({ photos, animals }) {
+  // const [isHover, setIsHover] = useState(false);
+  // const handleMouseEnter = () => {
+  //   setIsHover(true);
+  // };
+  // const handleMouseLeave = () => {
+  //   setIsHover(false);
+  // }
+
   return (
+    <>
+<dl className="row" style={{ marginTop: '50px' }}>
+  <dt className="col-sm-3">Вид</dt>
+  <dd className="col-sm-9">{animals.animalname}</dd>
+
+  <dt className="col-sm-3">Описание</dt>
+  <dd className="col-sm-9">
+    <p>{animals.description}</p>
+  </dd>
+</dl>
     <div id="carouselExampleCaptions" className="carousel slide">
         <div className="carousel-indicators">
-          <h4>{animals.description}</h4>
           <button
             type="button"
             data-bs-target="#carouselExampleCaptions"
@@ -51,5 +68,6 @@ export default function ModalPage({ photos, animals }) {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
+    </>
   );
 }
