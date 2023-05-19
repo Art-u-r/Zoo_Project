@@ -17,12 +17,13 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
     window.location = '/admin/animals';
   };
 
-  const deleteHandler = async (id) => {
+  const deleteHandler = async (id, animalname) => {
     try {
-      const response = await axios.delete(`/admin/animals/${id}`);
-      console.log('response---------->', response);
-      if (response.status === 200) {
-        window.location.reload();
+      if(window.confirm(`${animalname} будет удален безвозвратно. Удалить?`)){
+        const response = await axios.delete(`/admin/animals/${id}`);
+        if (response.status === 200) {
+          window.location.reload();
+        }
       }
     } catch (error) {
       console.log(error);
@@ -88,7 +89,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
         </div>
       </form>
       <div>
-        {animal?.map((el) => {console.log(el); return (
+        {animal?.map((el) => 
           <div key={el.id}>
             {el.animalname}
             <button className="btn btn-danger" type="button" onClick={() => deleteHandler(el.id)}>
@@ -163,7 +164,7 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
               </div>
             </div>
           </div>
-        )})}
+        )}
       </div>
     </div>
   );
