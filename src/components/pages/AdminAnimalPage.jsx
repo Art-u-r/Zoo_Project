@@ -9,12 +9,13 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
   //   mainImg: animal.mainImg,
   // });
 
-  const deleteHandler = async (id) => {
+  const deleteHandler = async (id, animalname) => {
     try {
-      const response = await axios.delete(`/admin/animals/${id}`);
-      console.log('response---------->', response);
-      if (response.status === 200) {
-        window.location.reload();
+      if(window.confirm(`${animalname} будет удален безвозвратно. Удалить?`)){
+        const response = await axios.delete(`/admin/animals/${id}`);
+        if (response.status === 200) {
+          window.location.reload();
+        }
       }
     } catch (error) {
       console.log(error);
@@ -87,7 +88,6 @@ export default function AdminAnimalPage({ animal, setAnimal }) {
             deleteHandler={deleteHandler}
             setAnimal={setAnimal}
           />
-        ))}
       </div>
     </div>
   );
