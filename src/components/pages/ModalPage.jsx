@@ -11,16 +11,20 @@ export default function ModalPage({ photos, animals }) {
   // }
 
   return (
-    <>
-<dl className="row" style={{ marginTop: '50px' }}>
-  <dt className="col-sm-3">Вид</dt>
+
+    <div style={{ display:'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+    <div>
+<dl className="row" style={{ marginTop: '50px', borderRadius:'10px'}}>
+  <h3 className="col-sm-3">Вид</h3>
   <dd className="col-sm-9">{animals.animalname}</dd>
 
-  <dt className="col-sm-3">Описание</dt>
+  <h5 className="col-sm-3">Описание</h5>
   <dd className="col-sm-9">
     <p>{animals.description}</p>
   </dd>
 </dl>
+    </div>
+
     <div id="carouselExampleCaptions" className="carousel slide">
         <div className="carousel-indicators">
           <button
@@ -68,6 +72,6 @@ export default function ModalPage({ photos, animals }) {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-    </>
+    </div>
   );
 }
