@@ -42,10 +42,19 @@ module.exports = {
         password: await bcrypt.hash("123", 6)
       },
     ],{});
+    await queryInterface.bulkInsert('Prices', [
+      {
+        workday_kids: '200',
+        weekend_kids: '300',
+        workday_adults: '500',
+        weekend_adults: '800'
+      },
+    ],{});
   },
 
   async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Animals', null, {});
     await queryInterface.bulkDelete('Admins', null, {});
+    await queryInterface.bulkDelete('Prices', null, {});
   },
 };
